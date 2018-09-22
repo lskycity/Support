@@ -19,6 +19,11 @@ import android.view.WindowManager;
 
 public class AppUtils {
 
+    /**
+     * using BuildConfig.VERSION_NAME instead.
+     *
+     * */
+    @Deprecated
     public static String getVersionName(Context context) {
         try {
             PackageManager packageManager = context.getPackageManager();
@@ -32,6 +37,10 @@ public class AppUtils {
         return null;
     }
 
+    /**
+     * using BuildConfig.VERSION_CODE instead.
+     *
+     * */
     public static int getVersionCode(Context context) {
         try {
             PackageManager packageManager = context.getPackageManager();
@@ -52,11 +61,10 @@ public class AppUtils {
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             return keyguardManager.isDeviceSecure();
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        } else {
             return keyguardManager.isKeyguardSecure();
         }
         // No way to detect whether the device below API level 16 is secured by PIN or password
-        return true;
     }
 
     public static void unlockScreen(Activity context, boolean dismissKeyguard) {
@@ -88,8 +96,8 @@ public class AppUtils {
 
     /**
      * find Activity from view
-     *@param view view already attached to activity.
      *
+     * @param view view already attached to activity.
      * @return Activity if this view attached in a activity, null if not
      * */
     public static Activity getActivity(@NonNull View view) {

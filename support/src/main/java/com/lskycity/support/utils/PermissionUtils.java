@@ -11,7 +11,6 @@ import android.support.v4.app.ActivityCompat;
  * Created by liuzhaofeng on 12/7/15.
  *
  */
-@TargetApi(Build.VERSION_CODES.M)
 public class PermissionUtils {
 
     public static boolean checkPermission(@NonNull Context context, @NonNull String... permissions) {
