@@ -4,16 +4,16 @@ import android.app.Activity;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.os.SystemClock;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.view.LayoutInflaterCompat;
-import android.support.v4.view.ViewCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 
 /**
  * Created by zhaofliu on 1/5/17.
@@ -57,7 +57,7 @@ public class ViewUtils {
 
     public static int getActionBarSize(Activity activity) {
         final TypedArray actionBarSize = activity.obtainStyledAttributes(new int[]
-                { android.support.v7.appcompat.R.attr.actionBarSize });
+                { android.R.attr.actionBarSize });
         int actionBarHeight = actionBarSize.getDimensionPixelSize(0, 0);
         actionBarSize.recycle();
         return actionBarHeight;

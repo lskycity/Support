@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Created by kevinbest on 16/1/30.
+ * Simple DateUtils
  */
 public class DateUtils {
     private static SimpleDateFormat FORMATER = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());

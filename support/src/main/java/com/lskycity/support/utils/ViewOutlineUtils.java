@@ -1,7 +1,3 @@
-/**
- * Copyright 2015 Cisco. All rights reserved.
- * OutlineUtils.java
- */
 package com.lskycity.support.utils;
 
 import android.annotation.SuppressLint;

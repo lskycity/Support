@@ -4,11 +4,12 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.RequiresPermission;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 import java.util.Locale;
+
+import androidx.annotation.RequiresPermission;
 
 public final class DeviceUtils {
 
@@ -69,7 +70,7 @@ public final class DeviceUtils {
     }
 
     @RequiresPermission(Manifest.permission.READ_PHONE_STATE)
-    @SuppressLint("HardwareIds")
+    @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String getIMEI(Context context) {
         return ((TelephonyManager)context.getSystemService(
                 Context.TELEPHONY_SERVICE)).getDeviceId();

@@ -1,11 +1,5 @@
-/*
- * Copyright (c) 2016 Cisco. All rights reserved.
- *
- */
-
 package com.lskycity.support.utils;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;

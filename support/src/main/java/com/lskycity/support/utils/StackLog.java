@@ -1,9 +1,3 @@
-/**
- *
- * Copyright 2014 Cisco. All rights reserved.
- * UILog.java
- *
- */
 package com.lskycity.support.utils;
 
 
