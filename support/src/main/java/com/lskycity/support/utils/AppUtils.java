@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.os.Build;
 import android.view.View;
 import android.view.Window;
@@ -104,4 +105,19 @@ public class AppUtils {
     public static Activity getActivity(@NonNull View view) {
         return scanForActivity(view.getContext());
     }
+
+    public int getNavigationBarHeight(Activity activity) {
+        Resources resources = activity.getResources();
+        int resourceId = resources.getIdentifier("navigation_bar_height",
+                "dimen", "android");
+        return resources.getDimensionPixelSize(resourceId);
+    }
+
+    public int getStatusBarHeight(Activity activity) {
+        Resources resources = activity.getResources();
+        int resourceId = resources.getIdentifier("status_bar_height",
+                "dimen", "android");
+        return resources.getDimensionPixelSize(resourceId);
+    }
+
 }
