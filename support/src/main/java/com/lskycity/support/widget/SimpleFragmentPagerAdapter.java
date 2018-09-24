@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2016 Cisco. All rights reserved.
- *
- */
 package com.lskycity.support.widget;
 
 import android.app.Activity;
