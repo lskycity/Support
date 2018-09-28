@@ -1,7 +1,9 @@
 package com.lskycity.support.utils;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.graphics.Outline;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewOutlineProvider;
 
@@ -9,13 +11,9 @@ import android.view.ViewOutlineProvider;
  *@author liuzhaofeng
  *@since Mar 9, 2015
  */
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class ViewOutlineUtils {
-    private static float avatar_radius_Rate = 7f / 80f;
 
-    @SuppressLint("NewApi")
-    private static final ViewOutlineProvider AVATAR_OUTLINE_PROVIDER = new RoundRectOutlineProviderByRate(avatar_radius_Rate);
-
-    @SuppressLint("NewApi")
     public static class RoundRectOutlineProvider extends ViewOutlineProvider {
 
         private float mRadius;
@@ -32,7 +30,6 @@ public class ViewOutlineUtils {
 
     }
 
-    @SuppressLint("NewApi")
     public static class RoundRectOutlineProviderByRate extends ViewOutlineProvider {
 
         private float mRadiusRate;
@@ -49,7 +46,6 @@ public class ViewOutlineUtils {
 
     }
 
-    @SuppressLint("NewApi")
     public static class OvalOutlineProvider extends ViewOutlineProvider {
 
         public OvalOutlineProvider() {

@@ -8,6 +8,8 @@ import android.text.TextUtils;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+
 /**
  * Created by zhaofliu on 1/26/17.
  *
@@ -17,7 +19,7 @@ import java.util.List;
 
 public class IntentUtils {
 
-    public static boolean startUrl(Context context, String url) {
+    public static boolean startUrl(@NonNull Context context, String url) {
         if(TextUtils.isEmpty(url)) {
            return false;
         }
@@ -31,14 +33,14 @@ public class IntentUtils {
         return false;
     }
 
-    public static boolean isIntentSafe(Context context, Intent intent) {
+    public static boolean isIntentSafe(@NonNull Context context, Intent intent) {
         PackageManager packageManager = context.getPackageManager();
         List activities = packageManager.queryIntentActivities(intent,
                 PackageManager.MATCH_DEFAULT_ONLY);
         return activities.size() > 0;
     }
 
-    public static void shareText(Context context, String dlgTitle, String text) {
+    public static void shareText(@NonNull Context context, String dlgTitle, String text) {
         Intent intent=new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, text);

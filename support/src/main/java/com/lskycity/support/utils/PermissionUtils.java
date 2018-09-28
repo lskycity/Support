@@ -2,9 +2,9 @@ package com.lskycity.support.utils;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.os.Process;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 
 /**
  * Created by liuzhaofeng on 12/7/15.
@@ -14,7 +14,7 @@ public class PermissionUtils {
 
     public static boolean checkPermission(@NonNull Context context, @NonNull String... permissions) {
         for(String p : permissions) {
-            if(ActivityCompat.checkSelfPermission(context, p) != PackageManager.PERMISSION_GRANTED) {
+            if(context.checkPermission(p, Process.myPid(), Process.myUid()) != PackageManager.PERMISSION_GRANTED) {
                 return false;
             }
         }

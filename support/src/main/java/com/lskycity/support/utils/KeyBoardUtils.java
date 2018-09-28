@@ -7,12 +7,14 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+
 /**
  * Created by liuzhaofeng on 2015/10/7.
  */
 public class KeyBoardUtils {
 
-    public static void openKeybord(Activity activity) {
+    public static void openKeybord(@NonNull Activity activity) {
         final View focusView;
         if ((focusView = activity.getCurrentFocus()) != null) {
             ((InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE)).showSoftInput(focusView, 0);
@@ -24,7 +26,7 @@ public class KeyBoardUtils {
      * open key bord
      *
      */
-    public static void openKeybord(EditText editText) {
+    public static void openKeybord(@NonNull EditText editText) {
         InputMethodManager imm = (InputMethodManager) editText.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.showSoftInput(editText, InputMethodManager.RESULT_SHOWN);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
@@ -34,7 +36,7 @@ public class KeyBoardUtils {
      * close key bord
      *
      */
-    public static void closeKeybord(Activity activity) {
+    public static void closeKeybord(@NonNull Activity activity) {
         final View view;
         if((view = activity.getCurrentFocus()) != null) {
             InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -47,13 +49,13 @@ public class KeyBoardUtils {
      * close key bord
      *
      */
-    public static void closeKeybord(EditText editText) {
+    public static void closeKeybord(@NonNull EditText editText) {
         InputMethodManager imm = (InputMethodManager) editText.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
 
     }
 
-    public static boolean isHardwareKeyboardAvailable(Context context) {
+    public static boolean isHardwareKeyboardAvailable(@NonNull Context context) {
         return context.getResources().getConfiguration().keyboard != Configuration.KEYBOARD_NOKEYS;
     }
 

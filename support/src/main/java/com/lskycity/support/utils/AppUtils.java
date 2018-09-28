@@ -26,7 +26,7 @@ public class AppUtils {
      *
      * */
     @Deprecated
-    public static String getVersionName(Context context) {
+    public static String getVersionName(@NonNull Context context) {
         try {
             PackageManager packageManager = context.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
@@ -43,7 +43,7 @@ public class AppUtils {
      * using BuildConfig.VERSION_CODE instead.
      *
      * */
-    public static int getVersionCode(Context context) {
+    public static int getVersionCode(@NonNull Context context) {
         try {
             PackageManager packageManager = context.getPackageManager();
             PackageInfo packageInfo = packageManager.getPackageInfo(
@@ -56,7 +56,7 @@ public class AppUtils {
         return 0;
     }
 
-    public static boolean isDeviceProtected(Context context) {
+    public static boolean isDeviceProtected(@NonNull Context context) {
         KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
         if(keyguardManager == null) {
             return false;
@@ -69,7 +69,7 @@ public class AppUtils {
         // No way to detect whether the device below API level 16 is secured by PIN or password
     }
 
-    public static void unlockScreen(Activity context, boolean dismissKeyguard) {
+    public static void unlockScreen(@NonNull Activity context, boolean dismissKeyguard) {
         Window window = context.getWindow();
         if (dismissKeyguard) {
             window.addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
@@ -106,14 +106,14 @@ public class AppUtils {
         return scanForActivity(view.getContext());
     }
 
-    public int getNavigationBarHeight(Activity activity) {
+    public int getNavigationBarHeight(@NonNull Activity activity) {
         Resources resources = activity.getResources();
         int resourceId = resources.getIdentifier("navigation_bar_height",
                 "dimen", "android");
         return resources.getDimensionPixelSize(resourceId);
     }
 
-    public int getStatusBarHeight(Activity activity) {
+    public int getStatusBarHeight(@NonNull Activity activity) {
         Resources resources = activity.getResources();
         int resourceId = resources.getIdentifier("status_bar_height",
                 "dimen", "android");

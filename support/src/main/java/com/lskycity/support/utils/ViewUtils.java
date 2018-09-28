@@ -3,6 +3,7 @@ package com.lskycity.support.utils;
 import android.app.Activity;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,8 +73,13 @@ public class ViewUtils {
     }
 
     public static boolean isLayoutRtl(View view) {
-        return ViewCompat.getLayoutDirection(view) == ViewCompat.LAYOUT_DIRECTION_RTL;
+        if (Build.VERSION.SDK_INT >= 17) {
+            return view.getLayoutDirection()== View.LAYOUT_DIRECTION_RTL;
+        }
+        return false;
     }
+
+
 
     public static boolean isClickTooFast() {
         return isClickTooFast(300);

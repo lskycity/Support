@@ -12,13 +12,13 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.FrameLayout;
 
 import com.lskycity.support.R;
 import com.lskycity.support.utils.DensityUtils;
 import com.lskycity.support.utils.ViewOutlineUtils;
 
-import androidx.core.view.ViewCompat;
 
 
 /**
@@ -73,8 +73,16 @@ public class RoundCornerLayout extends FrameLayout {
                 setClipToOutline(true);
             } else {
                 resetPath();
-                ViewCompat.postInvalidateOnAnimation(this);
+                postInvalidateOnAnimation(this);
             }
+        }
+    }
+
+    private static void postInvalidateOnAnimation(View view) {
+        if (Build.VERSION.SDK_INT >= 16) {
+            view.postInvalidateOnAnimation();
+        } else {
+            view.postInvalidate();
         }
     }
 
